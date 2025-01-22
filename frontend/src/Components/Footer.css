@@ -1,0 +1,63 @@
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main-footer {
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  background-color: black;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-footer h4 {
+  font-size: 2rem;
+}
+
+.main-footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.main-footer li {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Add styles for the Link component */
+.main-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-footer a:hover {
+  color: #ddd;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+/* Ensure proper spacing for social icons */
+.social {
+  display: flex;
+  flex-direction: column; /* Stack the social icons vertically */
+  margin-left: 18%;
+}
+
+.social li {
+  margin-bottom: 10px; /* Adjust spacing between social icons if needed */
+}
+
+.social a i {
+  color: white;
+}
+
+.social a i:hover {
+  color: #ddd;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
