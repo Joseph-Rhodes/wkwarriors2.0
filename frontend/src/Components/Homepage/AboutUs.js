@@ -1,13 +1,13 @@
 import React from 'react';
 import './AboutUs.css';
-import FoundationImage from '../../Images/Screenshot 2024-06-28 at 17.41.01.png'; 
+// import FoundationImage from '../../Images/Screenshot 2024-06-28 at 17.41.01.png'; 
 import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   return (
     <div className="about-us-container">
       <div className="image-overlay-container">
-        <img src={FoundationImage} alt="USA Basketball Foundation" className="foundation-image" />
+        {/* <img src={FoundationImage} alt="USA Basketball Foundation" className="foundation-image" /> */}
         <div className="image-overlay"></div>
       </div>
       <div className="about-us-content">

@@ -7,49 +7,49 @@ const cards = [
     time: "13h",
     draft: "2024 draft",
     description: "Description for Jaylon Tyson",
-    imgSrc: "../../Images/teamPhoto.png"
+    // imgSrc: "../../Images/teamPhoto.png"
   },
   {
     title: "Prospect Profile: Kyshawn George",
     time: "3d",
     draft: "2024 draft",
     description: "Description for Kyshawn George",
-    imgSrc: "../../Images/teamPhoto.png"
+    // imgSrc: "../../Images/teamPhoto.png"
   },
   {
     title: "Prospect Profile: Johnny Furphy",
     time: "6d",
     draft: "2024 draft",
     description: "Description for Johnny Furphy",
-    imgSrc: "../../Images/teamPhoto.png"
+    // imgSrc: "../../Images/teamPhoto.png"
   },
   {
     title: "Prospect Profile: Johnny Furphy",
     time: "6d",
     draft: "2024 draft",
     description: "Description for Johnny Furphy",
-    imgSrc: "../../Images/teamPhoto.png"
+    // imgSrc: "../../Images/teamPhoto.png"
   },
   {
     title: "Prospect Profile: Johnny Furphy",
     time: "6d",
     draft: "2024 draft",
     description: "Description for Johnny Furphy",
-    imgSrc: "../../Images/teamPhoto.png"
+    // imgSrc: "../../Images/teamPhoto.png"
   },
   {
     title: "Prospect Profile: Johnny Furphy",
     time: "6d",
     draft: "2024 draft",
     description: "Description for Johnny Furphy",
-    imgSrc: "../../Images/teamPhoto.png"
+    // imgSrc: "../../Images/teamPhoto.png"
   },
   {
     title: "Prospect Profile: Johnny Furphy",
     time: "6d",
     draft: "2024 draft",
     description: "Description for Johnny Furphy",
-    imgSrc: "../../Images/teamPhoto.png"
+    // imgSrc: "../../Images/teamPhoto.png"
   },
   // Add more cards as needed
 ];
@@ -99,7 +99,7 @@ const MediaSection = () => {
         {currentCards.map((card, index) => (
           <div className="card" key={index}>
             <div className="card-image-container">
-              <img src={card.imgSrc} alt={card.title} className="card-img" />
+              {/* <img src={card.imgSrc} alt={card.title} className="card-img" /> */}
               <div className="card-content">
                 <h3 className="card-title">{card.title}</h3>
                 <p className="card-description">{card.description}</p>

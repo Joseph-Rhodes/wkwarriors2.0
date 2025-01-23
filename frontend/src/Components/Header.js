@@ -1,7 +1,7 @@
 import MobileNav from "./MobileNav";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
-import logo from '../Images/wkwlgo.png'; // Adjust the path as per your project structure
+import logo from "../Images/TeamLogo/wkwlgo.png"
 
 const Header = () => {
   return (

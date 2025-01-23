@@ -10,15 +10,6 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Pages/Root";
 import ErrorPage from "./error-page";
-import Team from "./Pages/Team";
-import TeamRecords from "./Pages/Team/TeamRecords";
-import Stats from "./Pages/Team/Stats";
-import Schedule from "./Pages/Schedule";
-import News from "./Pages/News";
-import LatestNews from "./Pages/News/LatestNews";
-import Photos from "./Pages/Media/Photos";
-import Videos from "./Pages/Media/Videos";
-import GalleryPage from "./Components/Photos/GalleryPage";
 
 
 

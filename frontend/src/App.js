@@ -1,5 +1,5 @@
 import React from "react";
-import NewsSection from "./Components/Homepage/NewsSection"
+import NewSections from "./Components/Homepage/NewSections";
 import AboutUs from "./Components/Homepage/AboutUs"
 import UpcomingSchedule from "./Components/Homepage/UpcomingSchedule"
 import MediaSection from "./Components/Homepage/MediaSection"
@@ -9,7 +9,7 @@ import MediaSection from "./Components/Homepage/MediaSection"
 const App = () => {
   return (
     <div>
-      <NewsSection />
+      <NewSections />
       <AboutUs />
       <UpcomingSchedule />
       <MediaSection /> 
