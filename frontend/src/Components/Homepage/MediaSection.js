@@ -1,119 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import './MediaSection.css';
-
-const cards = [
-  {
-    title: "The Roaring 20sfvdvdvd lvndovidovhfrefweddeewdew",
-    time: "13h",
-    draft: "2024 draft",
-    description: "Description for Jaylon Tyson",
-    // imgSrc: "../../Images/teamPhoto.png"
-  },
-  {
-    title: "Prospect Profile: Kyshawn George",
-    time: "3d",
-    draft: "2024 draft",
-    description: "Description for Kyshawn George",
-    // imgSrc: "../../Images/teamPhoto.png"
-  },
-  {
-    title: "Prospect Profile: Johnny Furphy",
-    time: "6d",
-    draft: "2024 draft",
-    description: "Description for Johnny Furphy",
-    // imgSrc: "../../Images/teamPhoto.png"
-  },
-  {
-    title: "Prospect Profile: Johnny Furphy",
-    time: "6d",
-    draft: "2024 draft",
-    description: "Description for Johnny Furphy",
-    // imgSrc: "../../Images/teamPhoto.png"
-  },
-  {
-    title: "Prospect Profile: Johnny Furphy",
-    time: "6d",
-    draft: "2024 draft",
-    description: "Description for Johnny Furphy",
-    // imgSrc: "../../Images/teamPhoto.png"
-  },
-  {
-    title: "Prospect Profile: Johnny Furphy",
-    time: "6d",
-    draft: "2024 draft",
-    description: "Description for Johnny Furphy",
-    // imgSrc: "../../Images/teamPhoto.png"
-  },
-  {
-    title: "Prospect Profile: Johnny Furphy",
-    time: "6d",
-    draft: "2024 draft",
-    description: "Description for Johnny Furphy",
-    // imgSrc: "../../Images/teamPhoto.png"
-  },
-  // Add more cards as needed
-];
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./MediaSection.css"; // Import the CSS file
 
 const MediaSection = () => {
+  const [media, setMedia] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1000);
+  const [visibleCount, setVisibleCount] = useState(3); // Default: 3 images
+
+  useEffect(() => {
+    // Fetch media data
+    axios
+      .get("http://localhost:3000/images") // Replace with your backend URL
+      .then((response) => {
+        // Sort folders by lastModified (most recent first)
+        const sortedMedia = response.data
+          .sort(
+            (a, b) => new Date(b.lastModified) - new Date(a.lastModified)
+          )
+          .slice(0, 6); // Take only the 6 most recent galleries
+        setMedia(sortedMedia);
+      })
+      .catch((error) => console.error("Error fetching media:", error));
+  }, []);
+
+  useEffect(() => {
+    // Update the visible image count based on screen size
+    const updateVisibleCount = () => {
+      if (window.innerWidth <= 600) {
+        setVisibleCount(1); // 1 image for small screens
+      } else if (window.innerWidth <= 1024) {
+        setVisibleCount(2); // 2 images for medium screens
+      } else {
+        setVisibleCount(3); // 3 images for larger screens
+      }
+    };
+
+    updateVisibleCount(); // Run on mount
+    window.addEventListener("resize", updateVisibleCount); // Update on resize
+
+    return () => window.removeEventListener("resize", updateVisibleCount); // Cleanup
+  }, []);
 
   const handleNext = () => {
-    if (isMobile) {
-      if (currentIndex + 1 < cards.length) {
-        setCurrentIndex(currentIndex + 1);
-      }
-    } else {
-      if (currentIndex + 3 < cards.length) {
-        setCurrentIndex(currentIndex + 3);
-      }
-    }
+    setCurrentIndex((prevIndex) =>
+      prevIndex + visibleCount >= media.length ? 0 : prevIndex + visibleCount
+    );
   };
 
   const handlePrev = () => {
-    if (isMobile) {
-      if (currentIndex - 1 >= 0) {
-        setCurrentIndex(currentIndex - 1);
-      }
-    } else {
-      if (currentIndex - 3 >= 0) {
-        setCurrentIndex(currentIndex - 3);
-      }
-    }
+    setCurrentIndex((prevIndex) =>
+      prevIndex - visibleCount < 0
+        ? media.length - visibleCount
+        : prevIndex - visibleCount
+    );
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1000);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const currentCards = isMobile ? [cards[currentIndex]] : cards.slice(currentIndex, currentIndex + 3);
-
   return (
-    <div className="media-section">
-      <h2 className="section-title">Latest Media</h2>
-      <div className="cards-container">
-        {currentCards.map((card, index) => (
-          <div className="card" key={index}>
-            <div className="card-image-container">
-              {/* <img src={card.imgSrc} alt={card.title} className="card-img" /> */}
-              <div className="card-content">
-                <h3 className="card-title">{card.title}</h3>
-                <p className="card-description">{card.description}</p>
-              </div>
-            </div>
+    <div className="latest-media-container">
+      <h2 className="latest-media-title">LATEST MEDIA</h2>
+      <div className="media-gallery">
+        {media.slice(currentIndex, currentIndex + visibleCount).map((item, index) => (
+          <div key={index} className="media-card">
+            <img
+              src={item.images[1].url} // First image of the folder
+              alt={item.folder}
+              className="media-image"
+            />
+            <div className="hover-title">{item.folder}</div>
           </div>
         ))}
       </div>
-      {currentIndex > 0 && (
-        <button className="nav-button prev" onClick={handlePrev}><i className="fa-solid fa-arrow-left"></i></button>
-      )}
-      {(isMobile ? currentIndex + 1 < cards.length : currentIndex + 3 < cards.length) && (
-        <button className="nav-button next" onClick={handleNext}><i className="fa-solid fa-arrow-right"></i></button>
-      )}
+      <div className="media-navigation">
+        {/* Conditionally render the Previous button */}
+        {currentIndex > 0 && (
+          <button onClick={handlePrev} className="nav-button">
+            <span style={{ fontSize: "24px" }}>{"←"}</span> {/* Left Arrow */}
+          </button>
+        )}
+        {/* Conditionally render the Next button */}
+        {currentIndex + visibleCount < media.length && (
+          <button onClick={handleNext} className="nav-button">
+            <span style={{ fontSize: "24px" }}>{"→"}</span> {/* Right Arrow */}
+          </button>
+        )}
+      </div>
     </div>
   );
 };
