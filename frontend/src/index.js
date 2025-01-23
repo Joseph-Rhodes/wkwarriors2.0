@@ -31,46 +31,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
       },
-      {
-        path: "roster",
-        element: <Team />,
-      },
-      {
-        path: "team-records",
-        element: <TeamRecords />,
-      },
-      {
-        path: "stats",
-        element: <Stats />,
-      },
-      {
-        path: "schedule",
-        element: <Schedule />,
-      },
-      {
-        path: "news",
-        element: <News />,
-      },
-      {
-        path: "latest-news",
-        element: <LatestNews />,
-      },
-      {
-        path: "photos",
-        element: <Photos />,
-      },
-      {
-        path: "contact",
-        element: <Contact />,
-      },
-      {
-        path: "videos",
-        element: <Videos />,
-      },
-      {
-        path: "gallery/:id",
-        element: <GalleryPage />,
-      },
+      
     ],
   },
 ]);
