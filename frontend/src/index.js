@@ -10,6 +10,9 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Pages/Root";
 import ErrorPage from "./error-page";
+import PhotosPage from "./Components/Photos/PhotosPage";
+import Contact from "./Components/Contact/Contact";
+import GalleryPage from "./Components/Photos/GallergyPage";
 
 
 
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />,
+      },
+      {
+        path: "/photos",
+        element: <PhotosPage />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/photos/:folderName",
+        element: <GalleryPage />,
       },
       
     ],

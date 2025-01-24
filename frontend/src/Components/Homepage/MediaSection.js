@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./MediaSection.css"; // Import the CSS file
 
 const MediaSection = () => {
@@ -60,14 +61,19 @@ const MediaSection = () => {
       <h2 className="latest-media-title">LATEST MEDIA</h2>
       <div className="media-gallery">
         {media.slice(currentIndex, currentIndex + visibleCount).map((item, index) => (
-          <div key={index} className="media-card">
+          <Link
+              to={`/photos/${item.folder}`} 
+              key={index}
+              className="media-card"
+              style={{textDecoration:"none"}}
+            >
             <img
               src={item.images[1].url} // First image of the folder
               alt={item.folder}
               className="media-image"
             />
             <div className="hover-title">{item.folder}</div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="media-navigation">

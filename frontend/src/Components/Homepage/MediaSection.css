@@ -2,12 +2,14 @@
 
 .latest-media-container {
   padding: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .latest-media-title {
-  font-size: 24px;
+  font-size: 3rem;
   margin-bottom: 20px;
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
 }
 
 .media-gallery {
@@ -67,10 +69,6 @@
     font-size: 24px;
     font-weight: bold;
   }
-
-  .media-card {
-    margin-bottom: 20px; /* Add spacing between images */
-  }
 }
 
 /* Navigation Buttons */
@@ -118,5 +116,11 @@
 @media (max-width: 600px) {
   .nav-button {
     transition: background 0.5s ease, color 0.5s ease;
+  }
+  .latest-media-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
   }
 }

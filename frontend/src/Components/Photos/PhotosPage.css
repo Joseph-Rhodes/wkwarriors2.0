@@ -1,0 +1,103 @@
+/* PhotosPage.css */
+.photos-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1300px;
+  margin: 1rem auto;
+}
+
+.photos-page-container-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photos-page-container-header h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.photos-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  gap: 30px;
+}
+
+.photos-card {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.photos-card img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photos-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.4);
+}
+
+.photos-title{
+  margin-top: 0.25rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .photos-cards-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 1.5rem;
+  }
+  .photos-page-container-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photos-title{
+    margin-top: 0.25rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    }
+
+  .photos-card img {
+    width: 100%; /* Full width for mobile */
+    height: auto;
+  }
+}
+
+/* See More Button */
+.see-more-button {
+  margin-top: 1rem;
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.see-more-button:hover {
+  background-color: #f0f0f0e0;
+}
+
