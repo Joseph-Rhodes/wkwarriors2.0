@@ -13,6 +13,7 @@ import ErrorPage from "./error-page";
 import PhotosPage from "./Components/Photos/PhotosPage";
 import Contact from "./Components/Contact/Contact";
 import GalleryPage from "./Components/Photos/GallergyPage";
+import Video from "./Components/Video/Video";
 
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/photos/:folderName",
         element: <GalleryPage />,
+      },
+      {
+        path: "/videos",
+        element: <Video />,
       },
       
     ],

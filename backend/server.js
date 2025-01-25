@@ -62,6 +62,54 @@ app.get("/images", async (req, res) => {
   }
 });
 
+app.get("/videos", async (req, res) => {
+  try {
+    const params = {
+      Bucket: process.env.AWS_BUCKET_NAME_VIDEO,
+    };
+
+    // Fetch all objects from the bucket
+    const data = await s3.listObjectsV2(params).promise();
+
+    // Group by folder and track the latest modification date
+    const folderMap = {};
+    data.Contents.forEach((item) => {
+      const folder = item.Key.split("/")[0]; // Extract folder name
+      if (!folderMap[folder]) {
+        folderMap[folder] = {
+          folder,
+          lastModified: item.LastModified,
+          videos: [],
+        };
+      }
+
+      folderMap[folder].videos.push({
+        key: item.Key,
+        url: `https://${process.env.AWS_BUCKET_NAME_VIDEO}.s3.${process.env.AWS_REGION}.amazonaws.com/${item.Key}`,
+        lastModified: item.LastModified,
+      });
+
+      // Update folder's lastModified to the most recent date
+      if (folderMap[folder].lastModified < item.LastModified) {
+        folderMap[folder].lastModified = item.LastModified;
+      }
+    });
+
+    // Convert folderMap to an array and sort folders by lastModified (desc)
+    const sortedFolders = Object.values(folderMap).sort(
+      (a, b) => new Date(b.lastModified) - new Date(a.lastModified)
+    );
+
+    res.json(sortedFolders); // Send the sorted folder list with images and lastModified
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error fetching videos from S3" });
+  }
+})
+
+
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
