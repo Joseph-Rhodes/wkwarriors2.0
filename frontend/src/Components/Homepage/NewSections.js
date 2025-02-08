@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewSections = () => {
   return (
-    <div>NewSections</div>
+    <div>NewSections (Coming Soon)</div>
   )
 }
 

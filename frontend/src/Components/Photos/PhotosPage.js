@@ -44,7 +44,7 @@ const PhotosPage = () => {
   return (
     <div className="photos-page-container">
       <div className="photos-page-container-header">
-        <h1>Galleries</h1>
+        <h1>Galleries (Waiting on more images)</h1>
       </div>
       <div className="photos-cards-container">
         {media.slice(0, visibleCount).map((item, index) => (

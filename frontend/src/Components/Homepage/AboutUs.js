@@ -11,7 +11,7 @@ const AboutUs = () => {
         <div className="image-overlay"></div>
       </div>
       <div className="about-us-content">
-        <h1>West Kirby Warriors</h1>
+        <h1>West Kirby Warriors (Coming Soon)</h1>
         <p>
           The West Kirby Warriors, founded in 2001 in Hoylake, Liverpool, UK, have emerged as a promising club on the rise. 
           With recent efforts focused on rebuilding and revitalization, they are gaining recognition for their dedication to 
