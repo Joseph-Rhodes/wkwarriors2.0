@@ -12,7 +12,7 @@ const Video = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/videos");
+        const response = await axios.get("https://wkwarriors.onrender.com/videos");
         const folders = response.data;
 
         const allVideos = folders

@@ -11,7 +11,7 @@ const PhotosPage = () => {
   useEffect(() => {
     // Fetch media data
     axios
-      .get("http://localhost:3000/images") // Replace with your backend URL
+      .get("https://wkwarriors.onrender.com/images") // Replace with your backend URL
       .then((response) => {
         const sortedMedia = response.data.sort(
           (a, b) => new Date(b.lastModified) - new Date(a.lastModified)

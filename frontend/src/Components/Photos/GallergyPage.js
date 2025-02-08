@@ -13,7 +13,7 @@ const GalleryPage = () => {
   useEffect(() => {
     // Fetch images based on folderName
     axios
-      .get("http://localhost:3000/images")
+      .get("https://wkwarriors.onrender.com/images")
       .then((response) => {
         const galleryData = response.data.find(
           (item) => item.folder === folderName

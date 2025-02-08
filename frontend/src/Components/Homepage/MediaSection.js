@@ -11,7 +11,7 @@ const MediaSection = () => {
   useEffect(() => {
     // Fetch media data
     axios
-      .get("http://localhost:3000/images") // Replace with your backend URL
+      .get("https://wkwarriors.onrender.com/images") // Replace with your backend URL
       .then((response) => {
         // Sort folders by lastModified (most recent first)
         const sortedMedia = response.data
