@@ -14,6 +14,8 @@ import PhotosPage from "./Components/Photos/PhotosPage";
 import Contact from "./Components/Contact/Contact";
 import GalleryPage from "./Components/Photos/GallergyPage";
 import Video from "./Components/Video/Video";
+import Stats from "./Components/Stats/Stats";
+import Roster from "./Components/Roster/Roster";
 
 
 
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "/videos",
         element: <Video />,
+      },
+      {
+        path: "/roster",
+        element: <Roster />,
+      },
+      {
+        path: "/stats",
+        element: <Stats />,
       },
       
     ],

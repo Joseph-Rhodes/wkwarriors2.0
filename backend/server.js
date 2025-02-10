@@ -4,6 +4,10 @@ const AWS = require("aws-sdk");
 const cors = require("cors");
 const processVideo = require("./thumbnailGenerator"); // Import the thumbnail generator
 const path = require("path");
+const dotenv = require('dotenv');
+const pool = require('./config/db');
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -143,6 +147,30 @@ app.get("/videos-with-thumbnails", async (req, res) => {
     res.status(500).json({ error: "Error processing videos from S3" });
   }
 });
+
+
+app.get('/api/test', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT NOW()'); // Test query to PostgreSQL
+    res.json({ message: 'Database connection successful!', time: result.rows[0].now });
+  } catch (err) {
+    console.error('Error connecting to the database:', err.message);
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+});
+
+// Players API Routes
+const playerRoutes = require('./routes/players');
+app.use('/api/players', playerRoutes); // Endpoint for players
+
+const statsRoutes = require('./routes/stats');
+app.use('/api/stats', statsRoutes); // Endpoint for players
+
+const coachesRoutes = require('./routes/coaches');
+app.use('/api/coaches', coachesRoutes); // Endpoint for players
+
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
