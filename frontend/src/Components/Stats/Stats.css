@@ -372,3 +372,8 @@
     font-size: 0.8rem;
   }
 }
+
+.player-position {
+  color: #888;
+  margin-left: 4px;
+}

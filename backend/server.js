@@ -164,10 +164,14 @@ const playerRoutes = require('./routes/players');
 app.use('/api/players', playerRoutes); // Endpoint for players
 
 const statsRoutes = require('./routes/stats');
-app.use('/api/stats', statsRoutes); // Endpoint for players
+app.use('/api/stats', statsRoutes); // Endpoint for stats
 
 const coachesRoutes = require('./routes/coaches');
-app.use('/api/coaches', coachesRoutes); // Endpoint for players
+app.use('/api/coaches', coachesRoutes); // Endpoint for coaches
+
+const teamRecordsRoutes = require('./routes/teamRecords');
+app.use('/api/teamRecords', teamRecordsRoutes); // Endpoint for team_records
+
 
 
 

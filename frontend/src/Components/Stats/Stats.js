@@ -195,7 +195,9 @@ const Stats = () => {
                 
                 return (
                   <tr key={stat.pid}>
-                    <td>{player.fname} {player.lname} {player.position}</td>
+                    <td>
+                      {player.fname} {player.lname} <span className="player-position">{player.position}</span>
+                    </td>
                     <td>{stat.games_played}</td>
                     <td>{(stat.total_points / stat.games_played).toFixed(1)}</td>
                     <td>{(stat.total_rebounds / stat.games_played).toFixed(1)}</td>

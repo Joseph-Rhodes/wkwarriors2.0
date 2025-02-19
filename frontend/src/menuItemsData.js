@@ -20,13 +20,6 @@ export const menuItemsData = [
   {
     title: 'Schedule',
     url: '/schedule',
-    submenu: [
-      {
-        title: 'Online Schedule',
-        url: 'schedule',
-      },
-      
-    ],
   },
   {
     title: 'News',
