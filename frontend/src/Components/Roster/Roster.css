@@ -216,7 +216,43 @@
 
 .coaches-table {
   margin-top: 5rem;
-  width: 30%; /* Adjust width as needed */
+  width: 30%;
+}
+
+.coaches-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.coaches-table th,
+.coaches-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px dashed #ddd;
+}
+
+@media (max-width: 450px) {
+  .coach-container {
+    justify-content: center;
+  }
+  .coaches-table {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .coaches-table table {
+    font-size: 0.9rem;
+  }
+
+  .coaches-table th,
+  .coaches-table td {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .coaches-table th {
+    text-align: center;
+  }
 }
 
 .roster-divider {
