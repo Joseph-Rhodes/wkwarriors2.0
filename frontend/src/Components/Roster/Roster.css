@@ -132,7 +132,6 @@
 .list-view td {
   padding: 0.5rem;
   text-align: left;
-  border-bottom: 1px dashed #ddd;
 }
 
 .list-view th {
@@ -228,7 +227,6 @@
 .coaches-table td {
   padding: 0.5rem;
   text-align: left;
-  border-bottom: 1px dashed #ddd;
 }
 
 @media (max-width: 450px) {
@@ -252,6 +250,12 @@
 
   .coaches-table th {
     text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .coach-container {
+    justify-content: center;
   }
 }
 
