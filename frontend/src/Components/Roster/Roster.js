@@ -161,45 +161,62 @@ const Roster = () => {
                 </tr>
               </thead>
               <tbody>
-                {coaches.map((coach) => (
-                  <tr key={coach.id}>
-                    <td>{coach.coach_type}</td>
-                    <td>{`${coach.first_name} ${coach.last_name}`}</td>
-                  </tr>
-                ))}
+                {coaches
+                  .filter(coach => isM2View ? coach.coach_team_level === "M2" : coach.coach_team_level === "M1")
+                  .map((coach) => (
+                    <tr key={coach.id}>
+                      <td>{coach.coach_type}</td>
+                      <td>{`${coach.first_name} ${coach.last_name}`}</td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
         </div>
         
       ) : (
-        <div className="player-container">
-          {sortedPlayers.map((player) => {
-            const playerStats = getPlayerStats(player.pid);
-            return (
-              <div key={player.pid} className="player-card">
-                <img src={player.profile_pic_url} alt={`${player.fname} ${player.lname}`} />
-                <div className="player-card-title">
-                  <div className="player-name">{player.fname} {player.lname}</div>
-                  <div className="player-number">#{player.number}</div>
+        <>
+          <div className="player-container">
+            {sortedPlayers.map((player) => {
+              const playerStats = getPlayerStats(player.pid);
+              return (
+                <div key={player.pid} className="player-card">
+                  <img src={player.profile_pic_url} alt={`${player.fname} ${player.lname}`} />
+                  <div className="player-card-title">
+                    <div className="player-name">{player.fname} {player.lname}</div>
+                    <div className="player-number">#{player.number}</div>
+                  </div>
+                  <div className="player-info">
+                    <p><strong>Year Signed:</strong> {new Date(player.date_signed).getFullYear()}</p>
+                    <p><strong>Height:</strong> {player.height}</p>
+                    <p><strong>Age:</strong> {new Date().getFullYear() - new Date(player.dob).getFullYear()}</p>
+                    <p><strong>Position:</strong> {player.position}</p>
+                    {playerStats && (
+                      <>
+                        <p><strong>PPG:</strong> {playerStats.pointsPerGame} <strong>RPG:</strong> {playerStats.reboundsPerGame}</p>
+                        <p><strong>APG:</strong> {playerStats.assistsPerGame} <strong>BPG:</strong> {playerStats.blocksPerGame}</p>
+                      </>
+                    )}
+                  </div>
                 </div>
-                <div className="player-info">
-                  <p><strong>Year Signed:</strong> {new Date(player.date_signed).getFullYear()}</p>
-                  <p><strong>Height:</strong> {player.height}</p>
-                  <p><strong>Age:</strong> {new Date().getFullYear() - new Date(player.dob).getFullYear()}</p>
-                  <p><strong>Position:</strong> {player.position}</p>
-                  {playerStats && (
-                    <>
-                      <p><strong>PPG:</strong> {playerStats.pointsPerGame} <strong>RPG:</strong> {playerStats.reboundsPerGame}</p>
-                      <p><strong>APG:</strong> {playerStats.assistsPerGame} <strong>BPG:</strong> {playerStats.blocksPerGame}</p>
-                    </>
-                  )}
+              );
+            })}
+          </div>
+          <hr className="roster-divider" />
+          <div className="coach-container">
+            {coaches
+              .filter(coach => isM2View ? coach.coach_team_level === "M2" : coach.coach_team_level === "M1")
+              .map((coach) => (
+                <div key={coach.id} className="coach-card">
+                  <img src={coach.coach_profile_pic} alt={`${coach.first_name} ${coach.last_name}`} />
+                  <div className="coach-card-info">
+                    <div className="coach-name">{coach.first_name} {coach.last_name}</div>
+                    <div className="coach-type">{coach.coach_type}</div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-        
+              ))}
+          </div>
+        </>
       )}
     </div>
   );
