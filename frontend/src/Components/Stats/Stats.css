@@ -38,7 +38,6 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
-  background: #1a1a1a;
   padding: 1rem;
   border-radius: 8px;
   border: 2px solid white;
@@ -279,7 +278,6 @@
 .stats-table-container {
   width: 100%;
   overflow-x: auto;
-  background: #1a1a1a;
   border-radius: 8px;
   padding: 1rem;
 }
