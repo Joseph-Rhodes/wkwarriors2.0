@@ -172,7 +172,8 @@ app.use('/api/coaches', coachesRoutes); // Endpoint for coaches
 const teamRecordsRoutes = require('./routes/teamRecords');
 app.use('/api/teamRecords', teamRecordsRoutes); // Endpoint for team_records
 
-
+const scheduleRoutes = require('./routes/schedule');
+app.use('/api/schedule', scheduleRoutes); // Endpoint for schedule
 
 
 

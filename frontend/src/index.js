@@ -17,6 +17,7 @@ import Video from "./Components/Video/Video";
 import Stats from "./Components/Stats/Stats";
 import Roster from "./Components/Roster/Roster";
 import TeamRecords from "./Components/TeamRecords/records"
+import Schedule from "./Components/Schedule/Schedule";
 
 
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path:"/team-records",
         element: <TeamRecords />
+      },
+      {
+        path:"/schedule",
+        element: <Schedule />
       }
       
     ],

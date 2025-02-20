@@ -1,0 +1,153 @@
+.schedule-page {
+  max-width: 1100px;
+  margin: 1rem auto;
+}
+
+.schedule-title-header h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 50px;
+}
+
+.toggle-container {
+  display: flex;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.toggle-button {
+  width: 6rem;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: black;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  font-size: 0.9rem;
+}
+
+.toggle-button.active {
+  background: lightgray;
+  border: 1px solid white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.schedule-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.schedule-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+margin-bottom: 10px;
+}
+
+.schedule-card-header {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.league-name{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.game-time{
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    font-weight: bold;
+}
+
+.schedule-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.team-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.team-name {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.score.win {
+  color: green; /* Warriors win */
+}
+
+.score.loss {
+  color: red; /* Warriors lose */
+}
+
+.upcoming-game {
+  color: gray; /* Color for TBD */
+}
+
+.schedule-card-footer {
+  text-align: right;
+  font-size: 0.75rem;
+  color: gray;
+}
+
+@media (max-width: 450px) {
+  .schedule-card {
+    padding: 10px; /* Reduce padding for smaller screens */
+    font-size: 0.9rem; /* Adjust font size for better readability */
+  }
+
+  .schedule-card-header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .game-time {
+    font-size: 0.8rem; /* Smaller font size for game time */
+  }
+
+  .team-info {
+    flex-direction: column; /* Stack team info vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .team-logo {
+    width: 40px; /* Smaller logo size */
+    height: 40px; /* Smaller logo size */
+  }
+
+  .team-name {
+    font-size: 1rem; /* Adjust team name font size */
+  }
+
+  .score {
+    font-size: 1.2rem; /* Adjust score font size */
+  }
+}
