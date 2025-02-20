@@ -2,14 +2,38 @@
 
 .latest-media-container {
   padding: 20px;
-  text-align: left;
+  text-align: center;
 }
 
 .latest-media-title {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.5em;
   color: white;
+  margin-bottom: 20px;
   font-family: "Bebas Neue", sans-serif;
+  font-weight: 1200;
+  position: relative;
+  display: inline-block;
+}
+
+.latest-media-title:before,
+.latest-media-title:after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.latest-media-title:before {
+  right: 100%;
+  margin-right: 10px;
+}
+
+.latest-media-title:after {
+  left: 100%;
+  margin-left: 10px;
 }
 
 .media-gallery {
@@ -124,3 +148,6 @@
     font-family: "Bebas Neue", sans-serif;
   }
 }
+
+
+

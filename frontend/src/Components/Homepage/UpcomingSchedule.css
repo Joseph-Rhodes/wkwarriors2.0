@@ -1,0 +1,136 @@
+.upcoming-schedule-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5em;
+  color: white;
+  margin-bottom: 20px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1200;
+  position: relative;
+  display: inline-block;
+}
+
+.title:before,
+.title:after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title:before {
+  right: 100%;
+  margin-right: 10px;
+}
+
+.title:after {
+  left: 100%;
+  margin-left: 10px;
+}
+
+.games-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game-item {
+  background: white;
+  border: 1px solid #ddd;
+  color: black;
+  border-radius: 8px;
+  padding: 30px;
+  width: 30%;
+  margin: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.game-name {
+  font-size: 1.75em;
+  font-weight: bold;
+  color: black;
+}
+
+.game-item p {
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.schedule-button {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.schedule-button:hover {
+  background-color: #f0f0f0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .games-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-item {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+    .upcoming-schedule-container{
+        justify-content: flex-start;
+    }
+  .games-list {
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin-left: -20%;
+  }
+
+  .game-item {
+    width: 80%;
+  }
+}
+
+@media (max-width: 390px) {
+    .upcoming-schedule-container{
+        justify-content: flex-start;
+    }
+  .games-list {
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin-left: -40%;
+  }
+
+  .game-item {
+    width: 80%;
+  }
+}
