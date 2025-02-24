@@ -11,19 +11,19 @@ const Roster = () => {
 
   useEffect(() => {
     const fetchPlayers = async () => {
-      const response = await fetch("http://localhost:3000/api/players");
+      const response = await fetch("https://wkwarriors.onrender.com/api/players");
       const data = await response.json();
       setPlayers(data);
     };
 
     const fetchStats = async () => {
-      const response = await fetch("http://localhost:3000/api/stats");
+      const response = await fetch("https://wkwarriors.onrender.com/api/stats");
       const data = await response.json();
       setStats(data);
     };
 
     const fetchCoaches = async () => {
-      const response = await fetch("http://localhost:3000/api/coaches");
+      const response = await fetch("https://wkwarriors.onrender.com/api/coaches");
       const data = await response.json();
       setCoaches(data);
     };

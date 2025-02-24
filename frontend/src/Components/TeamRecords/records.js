@@ -8,7 +8,7 @@ const Records = () => {
   useEffect(() => {
     const fetchRecords = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/teamRecords');
+        const response = await fetch('https://wkwarriors.onrender.com/api/teamRecords');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -21,7 +21,7 @@ const Records = () => {
 
     const fetchPlayers = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/players');
+        const response = await fetch('https://wkwarriors.onrender.com/api/players');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

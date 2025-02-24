@@ -8,7 +8,7 @@ const UpcomingSchedule = () => {
   useEffect(() => {
     const fetchUpcomingGames = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/schedule?type=UPCOMING");
+        const response = await fetch("https://wkwarriors.onrender.com/api/schedule?type=UPCOMING");
         const data = await response.json();
         setGames(data);
       } catch (error) {

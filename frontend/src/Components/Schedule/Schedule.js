@@ -6,7 +6,7 @@ const Schedule = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/schedule?type=${activeTab}`) // Fetch upcoming or past games
+    fetch(`https://wkwarriors.onrender.com/api/schedule?type=${activeTab}`) // Fetch upcoming or past games
       .then((res) => res.json())
       .then((data) => setGames(data))
       .catch((error) => console.error("Error fetching schedule:", error));

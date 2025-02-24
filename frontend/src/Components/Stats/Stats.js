@@ -10,8 +10,8 @@ const Stats = () => {
   useEffect(() => {
     const fetchData = async () => {
       const [playersRes, statsRes] = await Promise.all([
-        fetch("http://localhost:3000/api/players"),
-        fetch("http://localhost:3000/api/stats")
+        fetch("https://wkwarriors.onrender.com/api/players"),
+        fetch("https://wkwarriors.onrender.com/api/stats")
       ]);
       
       const playersData = await playersRes.json();
