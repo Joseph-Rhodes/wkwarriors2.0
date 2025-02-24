@@ -1,13 +1,14 @@
 // backend/routes/teamRecords.js
 const express = require('express');
-const pool = require('../config/db'); // Ensure this path points to your db.js
+const supabase = require('../config/db');
 const router = express.Router();
 
 // Get all team records
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM team_records ORDER BY record_value DESC');
-    res.json(result.rows);
+    const { data, error } = await supabase.from('team_records').select('*').order('record_value', { ascending: false });
+    if (error) throw error;
+    res.json(data);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

@@ -1,13 +1,14 @@
 // backend/routes/stats.js
 const express = require('express');
-const pool = require('../config/db'); // Ensure this path points to your db.js
+const supabase = require('../config/db');
 const router = express.Router();
 
 // Get all stats
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM stats');
-    res.json(result.rows);
+    const { data, error } = await supabase.from('player_stats').select('*');
+    if (error) throw error;
+    res.json(data);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

@@ -1,13 +1,13 @@
-// backend/routes/players.js
 const express = require('express');
-const pool = require('../config/db'); // Ensure this path points to your db.js
+const supabase = require('../config/db');
 const router = express.Router();
 
-// Get all players
+// Get all coaches
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM coaches');
-    res.json(result.rows);
+    const { data, error } = await supabase.from('coaches').select('*');
+    if (error) throw error;
+    res.json(data);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
