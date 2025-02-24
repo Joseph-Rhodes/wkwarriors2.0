@@ -59,7 +59,7 @@ const Video = () => {
   return (
     <div className="video-page-container">
       <div className="video-page-container-header">
-        <h1>Videos (waiting to be sent videos from team)</h1>
+        <h1>Videos</h1>
       </div>
       <div className="video-content">
         {activeVideo && (
